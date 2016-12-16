@@ -1,0 +1,244 @@
+#! /usr/bin/env node
+
+var path = require('path');
+var fs = require('fs');
+var shell = require('shelljs');
+var tp = require('jstm');
+require("consoleplusplus");
+var cmd = process.cwd();
+
+var checkConfigFile = function () {
+    if (!fs.existsSync(path.resolve(cmd, './kConfig/configs.js'))) {
+        throw 'Could not find the [kConfig/configs.js] file, please check.';
+    }
+};
+var generate = require(path.resolve(__dirname, '../lib/build'));
+
+var setcwdAsTheRootPath = function () {
+    var runtimePath = path.resolve(__dirname, '../lib/runtime.json');
+    var runtime = require(runtimePath);
+    runtime.rootPath = cmd;
+    fs.writeFileSync(runtimePath, JSON.stringify(runtime));
+};
+
+setcwdAsTheRootPath();
+
+var optimist = require('optimist').
+    options('h', {
+        alias: 'help'
+    }).
+    options('?', {
+        alias: 'help',
+        describe: 'Show all the options!'
+    }).
+    options('g', {
+        alias: 'generate',
+        describe: 'Generate the project at {projectPath}.'
+    }).
+    options('i', {
+        alias: 'init',
+        describe: 'Init template from testing data.'
+    }).
+    options('r', {
+        alias: 'autoRebuild',
+        describe: 'Auto rebuild modified template.'
+    }).
+    options('s', {
+        alias: 'startServer',
+        describe: 'start server of [http] or [weinre] or [all].'
+    }).
+    options('b', {
+        alias: 'build',
+        describe: 'build all template to output dir.'
+    }).
+    options('p', {
+        alias: 'package',
+        describe: 'package all src to [name]||"business". \n' +
+        '                     Make sure you\'ve already run build command.'
+    }).
+    options('o', {
+        alias: 'output',
+        describe: 'output packaged project to [path]||"projectOutput". \n'
+    }).
+    options('e', {
+        alias: 'export',
+        describe: 'export the project depend on the [mainpage] to "__publish__" directory. \n'
+    }).
+    options('c', {
+        alias: 'cms',
+        describe: 'upload file to cms server. \n'
+    });
+
+/**
+ * 是否函数
+ * @param obj
+ * @return {boolean}
+ */
+var isFunction = function (obj) {
+    return Object.prototype.toString.call(obj) === '[object Function]';
+};
+/**
+ * 分发命令的类
+ * @param optimist
+ * @constructor
+ */
+var Dispatcher = function (optimist) {
+    this.optimist = optimist;
+};
+
+Dispatcher.prototype = {
+    constructor: Dispatcher,
+    run: function () {
+        var ops = this.optimist.argv;
+        for (var type in ops) {
+            if (ops.hasOwnProperty(type) && isFunction(Dispatcher.handlers[type])) {
+                Dispatcher.handlers[type].bind(this)(ops[type]);
+            }
+        }
+    }
+};
+
+/**
+ * 命令对应的处理函数
+ * @type {{help: Function, generate: Function}}
+ */
+Dispatcher.handlers = {
+    /**
+     * 帮助文件
+     * @param data
+     */
+    'help': function (data) {
+        if (data) {
+            console.log(this.optimist.help());
+        }
+    },
+    /**
+     * 调用生成   todo:路径不对
+     */
+    'generate': function () {
+        var currentPath = process.cwd();
+        var projectTemplatePath = path.resolve(__dirname, '../lib/projectModule');
+        var seajsPluginPath = path.resolve(__dirname, '../node_modules/seajs/dist/sea-debug.js');
+
+        tp.updateHelper(projectTemplatePath + '/lib/tpHelper');
+        console.info('UpdatePlugin success.');
+
+        shell.cp('-Rf', seajsPluginPath, projectTemplatePath + '/lib/');
+        console.info('Generate seajs plugin success.');
+
+        shell.cp('-Rf', projectTemplatePath + '/*', currentPath);
+        console.info('Generate project from projectTemplate success.');
+
+        shell.chmod('-R', '777', currentPath);
+        shell.chmod('-R', '777', path.resolve(__dirname, '../'));
+    },
+    'autoRebuild': function () {
+        checkConfigFile();
+        generate.autoBuild();
+    },
+    'startServer': function (data) {
+        checkConfigFile();
+        var portConfig = require(path.resolve(cmd, 'kConfig/configs'));
+        var runner = require('../lib/runner');
+        var httpPort = portConfig.http.port;
+        var weinrePort = portConfig.weinre.port;
+        var templateRoot = portConfig.template;
+        var start = {
+            'http': function () {
+                runner.startHttpServer(process.cwd(), httpPort, templateRoot);
+            },
+            'weinre': function () {
+                runner.startWeinreServer(weinrePort);
+            },
+            'all': function () {
+                this['http']();
+                this['weinre']();
+            }
+        };
+        if (start[data] !== undefined) {
+            start[data]();
+        } else {
+            console.error('Don\'t support server: ' + data);
+        }
+    },
+    'build': function (templateId) {
+        if (templateId === true) {
+            templateId = function () {
+            };
+        }
+        checkConfigFile();
+        generate.build(templateId);
+    },
+    'package': function () {
+        checkConfigFile();
+        var config = require(cmd + "/kConfig/configs");
+        config.packModules.forEach(function (packModule) {
+            require('jspacker').pack(
+                path.resolve(cmd, packModule.path),
+                cmd + "/dist",
+                packModule.name,
+                cmd,
+                config
+            );
+        });
+    },
+    'output': function (_path) {
+        if (_path === true) {
+            _path = path.resolve(cmd, './projectOutput');
+        } else if (typeof _path === 'string') {
+            _path = path.resolve(cmd, _path);
+        }
+        if (!fs.existsSync(_path)) {
+            fs.mkdir(_path);
+            fs.mkdir(_path + '/src');
+        }
+        Dispatcher.handlers.build();
+        Dispatcher.handlers.package();
+        shell.cp('-Rf', cmd + '/dist', _path);  //打包后的script代码
+        shell.cp('-Rf', cmd + '/src/styles', _path + '/src/');  //styles
+        shell.cp('-Rf', cmd + '/src/images', _path + '/src/');  //图片
+        shell.cp('-Rf', cmd + '/index.html', _path);  //主页
+    },
+    'export': function (mainpage) {
+        checkConfigFile();
+        var pagename = mainpage;
+        generate.build(function () {
+        });//重新编译全部模板
+        var exp = require('knighkit-publish');
+        if (mainpage === true) {
+            mainpage = undefined;
+        }
+        //publish 和 produce 阶段都属于发布到服务器，因此，后缀改为 _toserver
+        if (/.*_publish$/g.test(mainpage) || /.*_produce$/g.test(mainpage)) {
+            mainpage = mainpage.replace(/_produce$|_publish$/g, '_toserver');
+        }
+        exp.publish(mainpage);
+        var config = require(cmd + "/kConfig/configs");
+        shell.rm('-rf', config.output);   //一次性清除所有output中的中间生成文件
+        shell.rm('-rf', config.cssOutput);   //清除css中间生成的文件
+        if (/.*_toserver$/g.test(pagename)) {
+            console.log('\n');
+            console.log('upload file to server, enter your passport.....');
+            Dispatcher.handlers.cms();
+        } else if (/.*_publish$/g.test(pagename)) { //发布
+            Dispatcher.handlers.cms('publish');
+        } else if (/.*_produce$/g.test(pagename)) { //生产环境
+            Dispatcher.handlers.cms('produce');
+        }
+    },
+    /**
+     * 先检查配置文件是否存在，如果不存在，请按照模板
+     *  @param stage 阶段 publish 和 produce
+     */
+    'cms': function (stage) {
+        checkConfigFile();
+        var kcms = require('knighkit-cms');
+        kcms.setConfig(require(path.resolve(cmd, './kConfig/configs.js')));
+        kcms.run(stage);
+    }
+};
+
+/**
+ * 执行分发命令
+ */
+new Dispatcher(optimist).run();

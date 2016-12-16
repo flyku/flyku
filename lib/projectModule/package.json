@@ -1,0 +1,20 @@
+{
+    "name": "example",
+    "title": "example",
+    "description": "",
+    "version": "1.0.0",
+    "homepage": "",
+    "author": {
+        "name": ""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git地址"
+    },
+    "bugs": {
+        "url": "XXX"
+    },
+    "devDependencies": {
+    },
+    "keywords": []
+}
