@@ -89,7 +89,7 @@ div{
 
 ## How to start?
 ```
-$ npm install -g knighkit
+$ npm install -g flyku
 ```
 安装成功后，可以输入
 
@@ -180,7 +180,7 @@ require('src/template/list');
 
 如果不启动静态服务器，会默认查找 src/template/list.js，在 knighkit 中，template/list 会是文件夹，其中包含 index.js m.html xxx.css 等。因此，会返回 404。
 
-以上请求，经中间件处理，会编译相应的模板，并将模板编译后的 js 代码返回给 js 加载器。等同于直接加载使用 ``` kkit -b``` 以后的 js 文件：
+以上请求，经中间件处理，会编译相应的模板，并将模板编译后的 js 代码返回给 js 加载器。等同于直接加载使用 ``` flyku -b``` 以后的 js 文件：
 
 ```
 require('output/list/list');
@@ -216,7 +216,7 @@ flyku --export
 
 如果不传递任何参数，会默认在 \_\_publish\_\_ 下生成一个 \_\_allpacked 的文件夹，程序会遍历根文件夹下的.html的文件，依次作为入口，打包到 \_\_allpacked 文件夹下。这种方式比较适合含有公共模块较多的页面，在上传静态资源时，可以不必手动处理公共的静态资源。
 
-注意：此命令执行时，会自动执行 kkit -b 编译模板的命令，并且在执行后删除 output 文件夹。
+注意：此命令执行时，会自动执行 flyku -b 编译模板的命令，并且在执行后删除 output 文件夹。
 
 #### CMS提交
 ```
@@ -227,17 +227,17 @@ flyku --cms
 
 之所以做一个 cms 提交出来，是想提供一种技术方案，即在没有后台 cms 接口，只有 cms 管理网站的情况下，我们如何做到自动提交文件到 cms。同样适用于 CDN 的提交。
 
-内部实现暂时使用了 phantomjs，需配置环境变量，如果在使用npm安装knighkit过程中，phantomjs的自动下载一直被墙，建议直接去phantomjs官网下载，并配置环境变量。然后再执行一遍 ```npm install -g knighkit ``` 即可安装通过。 
+内部实现暂时使用了 phantomjs，需配置环境变量，如果在使用npm安装flyku过程中，phantomjs的自动下载一直被墙，建议直接去phantomjs官网下载，并配置环境变量。然后再执行一遍 ```npm install -g flyku ``` 即可安装通过。 
 
 CMS 后续打算直接使用 [berserkJS](https://github.com/tapir-dream/berserkJS)，不再使用phantomjs+capsperJS。
 
 ## Change logs
 
-#### 2016/2/17 version 0.8.0 
+#### 2016/2/17 version 1.0.0 
 支持 include 和 puzzle 扩展标签的嵌套
 
 ## Authors and Contributors
-KnightWu (@wulijian)
+flyku (@flyku)
 
 ## Support or Contact
-wulijian722@gmail.com
+752852333@qq.com
