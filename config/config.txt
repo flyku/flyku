@@ -1,3 +1,8 @@
 cmd    regedit   在muiCache添加字符串键值
 
-C:\Users\user\AppData\Roaming\npm\node_modules\flyku.cmd
+1、把C:\Users\user\AppData\Roaming\npm\node_modules\flyku.cmd
+	添加到muiCache字符串键值
+
+
+
+2、把flyku与flyku.cmd添加到C:\Users\user\AppData\Roaming\npm目录下即可
