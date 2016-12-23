@@ -1,5 +1,4 @@
 {
-  //"_resolved": ""//http://registry.npm.taobao.org/flyku/download/flyku-1.0.0.tgz
   "name": "flyku",
   "title": "flyku",
   "description": "flyku 是自动化，模块开发，并支持自动打包，支持远程调试的前端开发框架。\r 目的是减少前端开发过程中的重复工作，使你更关注程序本身。",
