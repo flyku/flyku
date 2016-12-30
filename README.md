@@ -1,6 +1,10 @@
 ## 欢迎使用 flyku.
 
+
+
 ##Flyku is an automated, modular development framework. The goal is to reduce duplication of work in the front-end development process, so that you pay more attention to the program itself.
+
+
 
 flyku 是自动化，模块开发
 目的是减少前端开发过程中的重复工作，使你更关注程序本身。
@@ -8,6 +12,10 @@ flyku 是自动化，模块开发
 ## 功能
 #### 自动化生成项目结构
 一条命令，完成项目的结构
+
+##安装flyku
+npm install -g flyku
+
 
 #### 集成常用的 jquery underscore 库等
 jquery 主要用于功能的开发，underscore 用于数据的处理等
