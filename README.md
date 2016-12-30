@@ -1,5 +1,8 @@
 ## 欢迎使用 flyku.
-flyku 是自动化，模块开发，并支持自动打包，支持远程调试的前端开发框架。
+
+##Flyku is an automated, modular development framework. The goal is to reduce duplication of work in the front-end development process, so that you pay more attention to the program itself.
+
+flyku 是自动化，模块开发
 目的是减少前端开发过程中的重复工作，使你更关注程序本身。
 
 ## 功能
@@ -27,4 +30,8 @@ HKEY_CURRENT_USER => Software => Classes => Local Settings => Software => Micros
 
 
 执行：flyku -g  创建项目
-      flyku -e  压缩项目
+
+执行：flyku -s http  开启服务
+
+flyku -b xxx.html 添加一个模版
+

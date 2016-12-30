@@ -1,0 +1,8 @@
+#test {
+    font-size: 100px;
+    color: #0000ee;
+}
+
+#test a:hover {
+    color: #0099ff;
+}
