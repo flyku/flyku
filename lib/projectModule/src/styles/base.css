@@ -1,0 +1,125 @@
+@charset "utf-8";
+html{color:#666;background:#fff;}
+body,div,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,iframe,input,textarea,select,label,article,aside,footer,header,menu,nav,section,time,audio,video {
+    margin:0;
+    padding:0;
+}
+em,i,s{font-style:normal}
+article,aside,footer,header,hgroup,nav,section,audio,canvas,video {display: block;}
+audio,canvas,video {display: inline-block;}
+h1,h2,h3,h4,h5,h6{font-weight: 400;font-size: 100%}
+body,option {
+    font:12px/1.5 "'Microsoft YaHei","微软雅黑",Arial,Helvetica,sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    word-wrap:break-word;
+    word-break:break-all;
+}
+a {text-decoration: none;color:#666;}
+*{outline: 0 none;}
+textarea {resize: none;}
+iframe,img {border:0;}
+iframe{display:block;}
+ul,ol {list-style:outside none;}
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+}
+table {border-collapse: collapse;border-spacing: 0;}
+
+input::-ms-clear, input::-ms-reveal{
+    display: none;
+}
+/*去掉谷歌输入框记住账号密码时的背景色*/
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: #333;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+    overflow:hidden;
+}
+.clearfix {zoom: 1}
+/*元素对齐、文字浮动*/
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.text-right {
+	text-align: right;
+}
+.text-center {
+	text-align: center;
+}
+.img-middle{
+	vertical-align: middle;
+}
+.img-text{
+	vertical-align: text-bottom;
+}
+/*边框*/
+.bd {
+	border: 1px solid #ededed;
+}
+.bd-radius {
+	border-radius: 3px;
+}
+/*边距*/
+.m20 {
+	margin: 20px;
+}
+.p20 {
+	padding: 20px;
+}
+.m-auto {
+	margin: 0 auto;
+}
+/*按钮*/
+.btn {
+	display: inline-block;
+	height: 26px;
+	padding: 0 5px;
+	line-height: 26px;
+}
+/*显示隐藏*/
+.show {
+	display: inline-block;
+}
+.hide {
+	display: none;
+}
+.over-hide {
+	overflow: hidden;
+}
+.vis-hide {
+	visibility: hidden;
+}
+/*输入框、选择框*/
+.input{
+	min-width: 140px;
+	border: 1px solid #ededed;
+	height: 24px;
+	padding-left: 6px;
+	margin-left: 10px;
+}
+.select {
+	min-width: 150px;
+	border-color: #ededed;
+	height: 26px;
+	margin-left: 10px; 	
+ }
+/* 星号标记 */
+/*<span class="mark">*</span>*/
+.mark {
+	color: #f00;
+	padding-right: 5px;
+}

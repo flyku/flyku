@@ -1,22 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <title>新项目</title>
+    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="/src/styles/normalize.css" role="debug"/>
     <link rel="stylesheet" href="/src/styles/base.css" role="debug"/>
     <link rel="stylesheet" href="/src/styles/index.css" role="debug"/>
+    <link rel="stylesheet" type="text/less" href="/src/styles/style.less" role="less"/>
 </head>
 <body>
-<section id="content">
-    <div id="hogan"></div>
-    <div id="html"></div>
-    <div id="jade"></div>
-    <div id="vm"></div>
+<!-- 引入头部 -->
+<!--#include virtual="/header/header.html"-->
+<div id="content">
+    <img src="/src/images/testImg3.png" alt="">
+    <div id="html" style="background:url(/src/images/testImg3.png);width:500px;height:200px;"></div>
     <a href="./test.html">test</a>
     <a href="./nomodule.html">nomodule</a>
-</section>
+    <div class="blue">less文件</div>
+</div>
 <script charset="utf-8" src="/lib/sea-debug.js" role="debug"></script>
+<script charset="utf-8" src="/lib/less.js" role="debug"></script>
+<script charset="utf-8" src="/plugins/My97DatePicker/WdatePicker.js"></script>
 <script charset="utf-8" type="text/javascript" role="debug">
     seajs.use('/kConfig/configs', function (conf) {
         seajs.config(conf);

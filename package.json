@@ -2,10 +2,10 @@
   "name": "flyku",
   "title": "flyku",
   "description": "Flyku is an automated, modular development framework. \r The goal is to reduce duplication of work in the front-end development process,  \r so that you pay more attention to the program itself.",
-  "version": "1.3.3",
+  "version": "0.2.4",
   "homepage": "",
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=6.2.0"
   },
   "author": {
     "name": "flyku"
@@ -31,9 +31,8 @@
     "jspacker": "latest",
     "seajs": "latest",
     "weinre": "latest",
-    "knighkit-cms": "0.0.19",
-    "knighkit-publish": "0.3.8",
-    "knighkit-tag-extension": "0.2.1",
+    "flyku-manage": "latest",
+    "flyku-include": "latest",
     "jstm": "latest",
     "optimist": "latest",
     "consoleplusplus": "latest",
@@ -46,6 +45,6 @@
     "模块化开发",
     "自动打包"
   ],
-  "_from": "flyku@1.3.3",
-  "_resolved": "http://registry.npm.taobao.org/flyku/download/flyku-1.3.3.tgz"
+  "_from": "flyku@0.2.4",
+  "_resolved": "http://registry.npm.taobao.org/flyku/download/flyku-0.2.4.tgz"
 }
