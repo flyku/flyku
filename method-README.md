@@ -1,6 +1,7 @@
-#十大编程算法
+#十大编程算法  
+
 ##算法一：快速排序算法
-[快速排序算法](#http://www.lupaworld.com/data/attachment/portal/201408/28/161353g0pvzsdbf7vab79p.gif "悬停显示")
+<img src="http://www.lupaworld.com/data/attachment/portal/201408/28/161353g0pvzsdbf7vab79p.gif" alt="">
 
 ```
 　　快速排序是由东尼·霍尔所发展的一种排序算法。  
