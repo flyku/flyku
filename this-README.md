@@ -7,6 +7,7 @@ this对象是运行时基于函数的执行环境绑定的： 在全局函数中
 ```
 ###复制代码
 ```
+***
 var name = "The Window";
 var object = {
     name: "My object",
@@ -17,6 +18,7 @@ var object = {
     }
 }
 alert(object.getNameFunc()()); // "The Window"
+***
 ```
  复制代码
  为什么最后的结果是 "The Window"
