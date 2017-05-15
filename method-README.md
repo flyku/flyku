@@ -1,6 +1,6 @@
 十大编程算法
 算法一：快速排序算法
-[快速排序算法]:http://www.lupaworld.com/data/attachment/portal/201408/28/161353g0pvzsdbf7vab79p.gif
+[快速排序算法](#http://www.lupaworld.com/data/attachment/portal/201408/28/161353g0pvzsdbf7vab79p.gif)
 
 　　快速排序是由东尼·霍尔所发展的一种排序算法。在平均状况下，排序 n 个项目要Ο(n log n)次比较。在最坏状况下则需要Ο(n2)次比 较，但这种状况并不常见。事实上，快速排序通常明显比其他Ο(n log n) 算法更快，因为它的内部循环（inner loop）可以在大部分的架构 上很有效率地被实现出来。
 
@@ -13,7 +13,7 @@
 
 
 算法二：堆排序算法
-[堆排序算法]:http://www.lupaworld.com/data/attachment/portal/201408/28/161353v3rxz8wczo70r007.gif
+[堆排序算法](#http://www.lupaworld.com/data/attachment/portal/201408/28/161353v3rxz8wczo70r007.gif)
 
 堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。堆积是一个近似完全二叉树的结构，并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。
 堆排序的平均时间复杂度为Ο(nlogn) 。
@@ -59,7 +59,7 @@ DFS 在访问图中某一起始顶点 v 后，由 v 出发，访问它的任一�
 接着，退回一步，退到前一次刚访问过的顶点，看是否还有其它没有被访问的邻接顶点。如果有，则访问此顶点，之后再从此顶点出发，进行与前述类似的访问；如果没有，就再退回一步进行搜索。重复上述过程，直到连通图中所有顶点都被访问过为止。
 
 算法七：BFS(广度优先搜索)
-[归并排序]:http://www.lupaworld.com/data/attachment/portal/201408/28/161354xdmrmz7b95utmp5p.gif
+[归并排序](#http://www.lupaworld.com/data/attachment/portal/201408/28/161354xdmrmz7b95utmp5p.gif)
 　　广度优先搜索算法（Breadth-First-Search），是一种图形搜索算法。简单的说，BFS是从根节点开始，沿着树(图)的宽度遍历树(图)的节点。如果所有节点均被访问，则算法中止。BFS同样属于盲目搜索。一般用队列数据结构来辅助实现BFS算法。
 算法步骤：
 1. 首先将根节点放入队列中。
@@ -71,7 +71,7 @@ DFS 在访问图中某一起始顶点 v 后，由 v 出发，访问它的任一�
 
 
 算法八：Dijkstra算法
-[归并排序]:http://www.lupaworld.com/data/attachment/portal/201408/28/161354v6e5yi9ziiyekry8.gif
+[归并排序](#http://www.lupaworld.com/data/attachment/portal/201408/28/161354v6e5yi9ziiyekry8.gif)
 　　戴克斯特拉算法（Dijkstra’s algorithm）是由荷兰计算机科学家艾兹赫尔·戴克斯特拉提出。迪科斯彻算法使用了广度优先搜索解决非负权有向图的单源最短路径问题，算法最终得到一个最短路径树。该算法常用于路由算法或者作为其他图算法的一个子模块。
 　　该算法的输入包含了一个有权重的有向图 G，以及G中的一个来源顶点 S。我们以 V 表示 G 中所有顶点的集合。每一个图中的边，都是两个顶点 所形成的有序元素对。(u, v) 表示从顶点 u 到 v 有路径相连。我们以 E 表示G中所有边的集合，而边的权重则由权重函 数 w: E → [0, ∞] 定义。因此，w(u, v) 就是从顶点 u 到顶点 v 的非负权重（weight）。边的权重可以想像成两个顶点之 间的距离。任两点间路径的权重，就是该路径上所有边的权重总和。已知有 V 中有顶点 s 及 t，Dijkstra 算法可以找到 s 到 t的最低权 重路径(例如，最短路径)。这个算法也可以在一个图中，找到从一个顶点 s 到任何其他顶点的最短路径。对于不含负权的有向图，Dijkstra算法是目 前已知的最快的单源最短路径算法。
 算法步骤：
