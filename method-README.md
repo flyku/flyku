@@ -1,6 +1,6 @@
 #十大编程算法  
 
-##算法一：快速排序算法
+##算法一：快速排序算法  
 <img src="http://www.lupaworld.com/data/attachment/portal/201408/28/161353g0pvzsdbf7vab79p.gif" alt="">
 
 ```
@@ -19,8 +19,8 @@
 ```
 
 
-##算法二：堆排序算法
-[堆排序算法](#http://www.lupaworld.com/data/attachment/portal/201408/28/161353v3rxz8wczo70r007.gif)
+##算法二：堆排序算法  
+<img src="http://www.lupaworld.com/data/attachment/portal/201408/28/161353v3rxz8wczo70r007.gif" >
 
 ```
 堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。  
@@ -34,8 +34,8 @@
 ```
 
 
-##算法三：归并排序
-[归并排序](#http://www.lupaworld.com/data/attachment/portal/201408/28/161354bea714ap6ee96793.gif)
+##算法三：归并排序  
+<img src="http://www.lupaworld.com/data/attachment/portal/201408/28/161354bea714ap6ee96793.gif" >
 ```
 归并排序（Merge sort，台湾译作：合并排序）是建立在归并操作上的一种有效的排序算法。  
 该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。  
@@ -47,7 +47,7 @@
 5. 将另一序列剩下的所有元素直接复制到合并序列尾
 ```
 
-##算法四：二分查找算法
+##算法四：二分查找算法  
 ```
 　　二分查找算法是一种在有序数组中查找某一特定元素的搜索算法。  
 1.搜素过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜素过程结束；   
@@ -56,7 +56,7 @@
 这种搜索算法每一次比较都使搜索范围缩小一半。   
 折半搜索每次把搜索区域减少一半，时间复杂度为Ο(logn) 。
 ```
-##算法五：BFPRT(线性查找算法)
+##算法五：BFPRT(线性查找算法)  
 ```
 BFPRT算法解决的问题十分经典，即从某n个元素的序列中选出第k大（第k小）的元素，  
 通过巧妙的分 析，BFPRT可以保证在最坏情况下仍为线 性时间复杂度。  
@@ -71,7 +71,7 @@ BFPRT算法解决的问题十分经典，即从某n个元素的序列中选出�
 终止条件：n=1时，返回的即是i小元素。
 
 ```
-##算法六：DFS（深度优先搜索）
+##算法六：DFS（深度优先搜索）  
 ```
 深度优先搜索算法（Depth-First-Search），是搜索算法的一种。   
 它沿着树的深度遍历树的节点，尽可能深的搜索树的分支。   
@@ -96,8 +96,8 @@ DFS 在访问图中某一起始顶点 v 后，由 v 出发，访问它的任一�
 重复上述过程，直到连通图中所有顶点都被访问过为止。
 
 ```
-##算法七：BFS(广度优先搜索)
-[归并排序](#http://www.lupaworld.com/data/attachment/portal/201408/28/161354xdmrmz7b95utmp5p.gif)
+##算法七：BFS(广度优先搜索)  
+<img src="http://www.lupaworld.com/data/attachment/portal/201408/28/161354xdmrmz7b95utmp5p.gif" >
 ```
 　　广度优先搜索算法（Breadth-First-Search），是一种图形搜索算法。   
 简单的说，BFS是从根节点开始，沿着树(图)的宽度遍历树(图)的节点。如果所有节点均被访问，则算法中止。   
@@ -112,8 +112,8 @@ BFS同样属于盲目搜索。一般用队列数据结构来辅助实现BFS算�
 ```
 
 
-##算法八：Dijkstra算法
-[归并排序](#http://www.lupaworld.com/data/attachment/portal/201408/28/161354v6e5yi9ziiyekry8.gif)
+##算法八：Dijkstra算法  
+<img src="http://www.lupaworld.com/data/attachment/portal/201408/28/161354v6e5yi9ziiyekry8.gif" >
 　　
 ```
 戴克斯特拉算法（Dijkstra’s algorithm）是由荷兰计算机科学家艾兹赫尔·戴克斯特拉提出。   
@@ -139,7 +139,7 @@ d(V0,Vi)为<v0,vi>弧上的权值，若不存在<v0,vi>，d(V0,Vi)为∞
 ```
 
 
-##算法九：动态规划算法
+##算法九：动态规划算法  
 ```
 动态规划（Dynamic programming）是一种在数学、计算机科学和经济学中使用的，  
 通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。  
