@@ -1,11 +1,11 @@
-```
 # # # 关于javascript闭包中的this对象
+```
 我们知道，
 this对象是运行时基于函数的执行环境绑定的： 在全局函数中， this等于window，
 而当函数被作为某个对象的方法调用时， this等于那个对象。《 Javascript高级程序设计》
 在下面的例子中， 理解闭包中的this对象。
 ```
-# # # 复制代码
+###复制代码
 ```
 var name = "The Window";
 var object = {
@@ -18,14 +18,14 @@ var object = {
 }
 alert(object.getNameFunc()()); // "The Window"
 ```
-# # # 复制代码
-# # # 为什么最后的结果是 "The Window"
-# # # 而不是object里面的name "My object"
-# # # 呢？
+ 复制代码
+ 为什么最后的结果是 "The Window"
+ 而不是object里面的name "My object"
+ 呢？
 
-# # # 首先， 要理解函数作为函数调用和函数作为方法调用。
+ 首先， 要理解函数作为函数调用和函数作为方法调用。
 
-# # # 我们把最后的一句拆成两个步骤执行：
+ 我们把最后的一句拆成两个步骤执行：
 ```
 var first = object.getNameFunc();
 var second = first();
